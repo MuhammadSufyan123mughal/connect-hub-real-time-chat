@@ -66,7 +66,7 @@ const emailRegex = /^\S+@\S+\.\S+$/;
         message: "Invalid email format.",
     });
  }
- const ser = await User.findOne({ email });
+ const user = await User.findOne({ email });
  if(!user){
      return res.status(400).json({
         success: false,
@@ -88,7 +88,7 @@ export const signout  = catchAsyncError(async (req, res, next) => {
         maxAge: 0,
         httpOnly: true,
         sameSite: "strict",
-        secure: process.env.NODE_ENV !== "developmment" ? true : false,
+        secure: process.env.NODE_ENV !== "development" ? true : false,
     }).json({
         success: true,
         message: "User logged out successfuly.",
@@ -106,7 +106,7 @@ export const getUser = catchAsyncError(async (req, res, next) => {
 
 export const updateProfile = catchAsyncError(async (req, res, next) => {
     const {fullName, email} = req.body;
-    if(fullName?.trim().length === 0 || email?.trim().length === 0) {
+    if(!fullName?.trim().length === 0 || !email?.trim().length === 0) {
          return res.status(400).json({
             success: false,
             message: "Fullname and Email can't be empty.",

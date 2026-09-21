@@ -16,7 +16,7 @@ router.post("/sign-up", signup);
 router.post("/sign-in", signin);
 router.get("/sign-out", isAuthenticated, signout);
 router.get("/me", isAuthenticated, getUser);
-router.put("/update-profle", isAuthenticated, updateProfile);
+router.put("/update-profile", isAuthenticated, updateProfile);
 
 
 
