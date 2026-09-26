@@ -89,7 +89,7 @@ const ChatContainer = () => {
                             message.media.includes(".mp4") ||
                               message.media.includes(".webm") ||
                               message.media.includes(".mov") ? (
-                              <vedio src={message.media} controls className="w-full rounded-md mb-2" />
+                              <video src={message.media} controls className="w-full rounded-md mb-2" />
                             ) : (
                               <img src={message.media} alt="Attachment" className="w-full rounded-md mb-2" />
                             )
