@@ -91,7 +91,7 @@ export const sendMessage = catchAsyncError(async (req, res, next) => {
             mediaUrl = uploadResponse?.secure_url;
         }
         catch (error) {
-            console.log("Clodinary upload error:", error);
+            console.log("Cloudinary upload error:", error);
             return res.status(500).json({
                 success: false,
                 message: "Failed to upload media. Please try again later.",

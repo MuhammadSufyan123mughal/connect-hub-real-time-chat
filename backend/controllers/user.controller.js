@@ -151,18 +151,10 @@ export const updateProfile = catchAsyncError(async (req, res, next) => {
             url: cloudinaryResponse.secure_url,
         };
     }
-
-
-
-
-
     let user = await User.findByIdAndUpdate(req.user._id, data, {
         new: true,
         runValidators: true,
     })
-
-
-
     res.status(200).json({
         success: true,
         message: "Profile updated successfully",
